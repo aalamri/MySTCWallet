@@ -12,10 +12,15 @@ import java.text.ParseException;
 @Service
 public class CustomerServiceImpl implements CustomerService{
 
+    @Autowired
+    CustomerRepository customerRepository;
+
     @Override
     public CreateCustomerResponseDTO createNewCustomer(Customer customerRequest) throws ParseException {
-        return null;
+        CreateCustomerResponseDTO createCustomerResponseDTO = new CreateCustomerResponseDTO();
+
+
+        return createCustomerResponseDTO;
+
     }
-
-
 }
