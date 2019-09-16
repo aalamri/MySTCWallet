@@ -9,9 +9,4 @@ import java.text.ParseException;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-    Customer findCustomerById(long id);
-
-    public CreateCustomerResponseDTO createNewCustomer (CustomerRequestDTO customerRequestDTO)
-            throws ParseException;
-
 }
