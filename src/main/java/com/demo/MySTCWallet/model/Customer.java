@@ -3,6 +3,7 @@ package com.demo.MySTCWallet.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -64,4 +65,17 @@ public class Customer {
         this.password = password;
     }
 
+    @OneToMany
+    @JoinColumn(name = "wallet_id")
+    private List<Customer> customer;
+
+    public List<Customer> getCustomer()
+    {
+        return customer;
+    }
+
+    public void setCustomer(final List<Customer> customer)
+    {
+        this.customer = customer;
+    }
 }

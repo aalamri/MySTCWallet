@@ -14,7 +14,6 @@ public class Wallet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
     public String walletName;
-    public Long customerId;
     public String currencyType;
     public Long balance;
 
@@ -32,14 +31,6 @@ public class Wallet {
 
     public void setWalletName(String walletName) {
         this.walletName = walletName;
-    }
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
     }
 
     public String getCurrencyType() {

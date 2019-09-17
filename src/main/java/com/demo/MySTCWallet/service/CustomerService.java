@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CustomerService {
 
-    public Customer createNewCustomer (Customer customer);
+    Customer createNewCustomer (Customer customer);
 
     List<Customer> findAll();
 

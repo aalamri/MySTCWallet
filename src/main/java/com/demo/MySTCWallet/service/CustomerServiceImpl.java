@@ -16,10 +16,13 @@ public class CustomerServiceImpl implements CustomerService{
     private CustomerService customerService;
 
     @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
     private CustomerRepository customerRepository;
 
     public Customer createNewCustomer(Customer customer){
-
+        String hashedPassword = passwordEncoder.encode(customer.getPassword());
         return customerRepository.save(customer);
     }
 
