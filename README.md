@@ -37,4 +37,19 @@ can call following Endpoints by using POSTMAN**
 
 7. **To get list of customer call following endpoint with GET Request**
 
-   http://localhost:8080/api/v1/customers
+    http://localhost:8080/api/v1/customers
+
+8. **To Create new Customer call following endpoint with POST Request**
+
+    http://localhost:8080/api/v1/customer
+    
+Request sample    
+```    
+{
+"firstName": "testing",
+"lastName": "otp", 
+"nationalId": "107477556",
+"phoneNumber":"0544531211",
+"password":"123456"
+}
+```
