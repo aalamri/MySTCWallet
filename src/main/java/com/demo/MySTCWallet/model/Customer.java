@@ -1,5 +1,6 @@
 package com.demo.MySTCWallet.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,6 +17,25 @@ public class Customer {
     public String nationalId;
     public String phoneNumber;
     public String password;
+
+    @OneToMany
+    @JsonIgnore
+    @JoinColumn(name = "wallet_id")
+    private List<Wallet> wallet;
+
+    public Customer(){
+
+    }
+
+    public Customer(String firstName, String lastName,String nationalId,String phoneNumber, String password) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.nationalId = nationalId;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+    }
+
 
     public Long getId() {
         return id;
@@ -65,17 +85,4 @@ public class Customer {
         this.password = password;
     }
 
-    @OneToMany
-    @JoinColumn(name = "wallet_id")
-    private List<Customer> customer;
-
-    public List<Customer> getCustomer()
-    {
-        return customer;
-    }
-
-    public void setCustomer(final List<Customer> customer)
-    {
-        this.customer = customer;
-    }
 }

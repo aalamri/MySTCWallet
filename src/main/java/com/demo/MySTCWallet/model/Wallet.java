@@ -2,27 +2,45 @@ package com.demo.MySTCWallet.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
 public class Wallet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    public Long walletID;
     public String walletName;
     public String currencyType;
     public Long balance;
 
-    public Long getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name="customer_id")
+    private Customer customer;
+
+    public Wallet() {
+
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Wallet(Long walletID){
+        super();
+        this.walletID = walletID;
+    }
+
+    public Wallet(Long walletID,String walletName, String currencyType, Long balance) {
+        super();
+        this.walletID = walletID;
+        this.currencyType = currencyType;
+        this.balance = balance;
+        this.walletName = walletName;
+    }
+
+    public Long getwalletID() {
+        return walletID;
+    }
+
+    public void setwalletID(Long walletID) {
+        this.walletID = walletID;
     }
 
     public String getWalletName() {
@@ -48,4 +66,5 @@ public class Wallet {
     public void setBalance(Long balance) {
         this.balance = balance;
     }
+
 }
